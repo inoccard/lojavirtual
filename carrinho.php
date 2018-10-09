@@ -1,12 +1,11 @@
-
- <?php
+<?php
  session_start();
  if($_SESSION['qwert'] == false) {
 
-      echo "VocÍ precisa estar conectado para ver esta ·rea<br>faÁa seu <a href=\"login.php\">login</a>";
+      echo "Voc√™ precisa estar conectado para ver esta √°rea<br>fa√ßa seu <a href=\"login.php\">login</a>";
       }
       else {
-echo "Ol·&nbsp;". $_SESSION['qwert']."&nbsp&nbsp";
+echo "Ol√°&nbsp;". $_SESSION['qwert']."&nbsp&nbsp";
 echo "<font face='Arial' size='2'>Confira abaixo,os produtos do seu carrinho: <a href=\"logout.php\">sair</a></font>" ?>
 <html>
 <head>
@@ -30,19 +29,19 @@ body {
 <script language="JavaScript">
 <!--
    function enviar(opcao) {
-      //OP«√O EXCLUIR SELECIONADA
+      //OP√á√ÉO EXCLUIR SELECIONADA
 	  if(opcao == 'E') {
 	     document.forms[0].opc_excluir.value = 1;
 		 document.forms[0].submit();
       }//FECHA IF
 	  
-	  //OP«√O ATUALIZAR SELECIONADA
+	  //OP√á√ÉO ATUALIZAR SELECIONADA
 	  if(opcao == 'A') {
 	     document.forms[0].opc_atualizar.value = 1;
 		 document.forms[0].submit();
       }//FECHA IF
 	  
-	  //OP«√O FINALIZAR SELECIONADA
+	  //OP√á√ÉO FINALIZAR SELECIONADA
 	  if(opcao == 'F') {
 	     document.forms[0].opc_finalizar.value = 1;
 		 document.forms[0].action = "finalizar.php";
@@ -59,21 +58,21 @@ body {
 <?php
 /************************************************************************
 ARQUIVO .........: Carrinho de compras simples: usando arrays e session
-BY ..............: J˙lio CÈsar Martini - baphp@imasters.com.br
+BY ..............: J√∫lio C√©sar Martini - baphp@imasters.com.br
 SITE ............: iMasters - http://www.imasters.com.br
 DATA ............: 23/05/2004
 ************************************************************************/
 
-//INICIALIZA A SESS√O
+//INICIALIZA A SESS√ÉO
 
 //VERIFICA SE TEM PRODUTO NO CARRINHO PARA PUXAR
 if(count($_SESSION[cesta]) > 0) { 
    //PEGA A CHAVE DO ARRAY
    $chave   =   array_keys($_SESSION[cesta]);
    
-   //PEGA OS DADOS DA SESS√O
+   //PEGA OS DADOS DA SESS√ÉO
    for($i=0; $i<sizeof($chave); $i++) { 
-      //ÕNDICE
+      //√çNDICE
       $indice   =   $chave[$i]; 
 	  
 	  //ATRIBUI
@@ -86,10 +85,10 @@ if(count($_SESSION[cesta]) > 0) {
 
 
 
-//VERIFICA SE A OP«√O ATUALIZAR FOI SELECIONADA
+//VERIFICA SE A OP√á√ÉO ATUALIZAR FOI SELECIONADA
 if($_POST[opc_atualizar]) {
    
-   //RECEBE OS PRODUTOS CHECADOS PARA ATUALIZA«√O
+   //RECEBE OS PRODUTOS CHECADOS PARA ATUALIZA√á√ÉO
    $v_atualiza  =  $_POST[a_prod];
    
    //PEGA A CHAVE DO ARRAY
@@ -106,26 +105,26 @@ if($_POST[opc_atualizar]) {
 }//FECHA IF
 
 
-//VERIFICA SE A OP«√O EXCLUIR FOI SELECIONADA
+//VERIFICA SE A OP√á√ÉO EXCLUIR FOI SELECIONADA
 elseif($_POST[opc_excluir]) {
    
-   //RECEBE OS PRODUTOS CHECADOS PARA EXCLUS√O
+   //RECEBE OS PRODUTOS CHECADOS PARA EXCLUS√ÉO
    $excluir  =  $_POST[check];
    
    //EXIBE
    for($i=0; $i<sizeof($excluir); $i++) {
 	  //PEGA O INDICE DO PRODUTO
 	  $indice   =   $excluir[$i];
-	  //DESTR”I A VARI¡VEL ESPECIFICADA
+	  //DESTR√ìI A VARI√ÅVEL ESPECIFICADA
 	  unset($_SESSION[cesta][$indice]);
    }//FECHA FOR
 }//FECHA IF
 
 
 
-//RECEBE O PEDIDO DO USU¡RIO
+//RECEBE O PEDIDO DO USU√ÅRIO
 elseif($_POST[opc_efetivar]) {
-   //RECEBE AS VARI¡VEIS
+   //RECEBE AS VARI√ÅVEIS
    $v_prod   =  $_POST[txtprod];
    
    //PEGA A CHAVE DO ARRAY
@@ -147,7 +146,7 @@ elseif($_POST[opc_efetivar]) {
       }//FECHA IF
    }//FECHA FOR
    
-   //GRAVA NA SESS√O
+   //GRAVA NA SESS√ÉO
    $_SESSION[cesta]        =   $cesta;
 }//FECHA ELSE
 ?>
@@ -232,7 +231,7 @@ elseif($_POST[opc_efetivar]) {
 	else { ?><br><br><br>
       <table width="90%"  border="0" align="center" cellpadding="0" cellspacing="0">
       <tr>
-        <td align='center'><font face='Arial' size='2' color="#006666"><b>Desculpe, mas no momento vocÍ n„o possui nenhumm produto.</b></td>
+        <td align='center'><font face='Arial' size='2' color="#006666"><b>Desculpe, mas no momento voc√™ n√£o possui nenhumm produto.</b></td>
       </tr>
       </table><br><br>
 	<?php
