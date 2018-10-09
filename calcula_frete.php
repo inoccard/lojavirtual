@@ -1,7 +1,5 @@
 <?php
 
-
-
 // Peso total do pacote em Quilos, caso seja menos de 1Kg, ex.: 300g, coloque 0.300
 
 define('PESO',2.00);
@@ -22,7 +20,7 @@ define('LARGURA',20);
 
 if($_POST) {
 
-// CÛdigo do ServiÁo que deseja calcular, veja tabela acima:
+// C√≥digo do Servi√ßo que deseja calcular, veja tabela acima:
 
 if ($_POST['servico']) {
 
@@ -36,7 +34,7 @@ $cep_origem = '04252-050';
 
 
 
-// CEP de Destino, vocÍ pode passar esse CEP por GET ou POST vindo de um formul·rio
+// CEP de Destino, voc√™ pode passar esse CEP por GET ou POST vindo de um formul√°rio
 
 $cep_destino = $_POST['cep-destino'];
 
@@ -50,19 +48,19 @@ $correios = "http://shopping.correios.com.br/wbm/shopping/script/CalcPrecoPrazo.
 
 
 
-// Capta as informaÁıes da p·gina dos Correios
+// Capta as informa√ß√µes da p√°gina dos Correios
 
 $correios_info = file($correios);
 
 
 
-// Processa as informaÁıes vindas do site dos correios em um Array
+// Processa as informa√ß√µes vindas do site dos correios em um Array
 
 for each ($correios_info as $info) {
 
 
 
-// Busca a informaÁ„o do PreÁo da Postagem
+// Busca a informa√ß√£o do Pre√ßo da Postagem
 
 if(preg_match("/\<Valor>(.*)\<\/Valor>/",$info,$tarifa)) {
 
@@ -82,7 +80,7 @@ $PrazoEntrega = $PrazoEntrega[1];
 
 
 
-// Neste exemplo estamos usando apenas PAC e SEDEX. Caso seja necess·rio, utilize outras opÁıes.
+// Neste exemplo estamos usando apenas PAC e SEDEX. Caso seja necess√°rio, utilize outras op√ß√µes.
 
 switch ($cod_servico) {
 
@@ -102,15 +100,15 @@ break;
 
 
 
-// Caso venha valor de resposta È numerio e maior que o custo da embalagem sen„o ocorreu algum erro na solicitaÁ„o.
+// Caso venha valor de resposta √© numerio e maior que o custo da embalagem sen√£o ocorreu algum erro na solicita√ß√£o.
 
 if(is_numeric($total) and ($total > $embalagem)) {
 
 
 
-// Quando encontra o valor da postagem, exibe na p·gina formatando em padr„o de moeda 10,89
+// Quando encontra o valor da postagem, exibe na p√°gina formatando em padr√£o de moeda 10,89
 
-// Caso vocÍ n„o queira formatar basta comentar a linha abaixo que ser· exibido assim 10.89 e basta executar o comando abaixo
+// Caso voc√™ n√£o queira formatar basta comentar a linha abaixo que ser√° exibido assim 10.89 e basta executar o comando abaixo
 
 $total = number_format($total,2,',','.');
 
