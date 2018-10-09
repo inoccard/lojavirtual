@@ -6,7 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CADASTRO DE CLIENTES DO SITE</title>
     <style type="text/css">
-
     <!--
     .style1 {
       color: #FF0000;
